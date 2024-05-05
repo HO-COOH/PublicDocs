@@ -302,6 +302,8 @@ classDiagram
     }
 
     UIElement --|> DependencyObject
+    UIElement --|> IAnimationObject
+    UIElement --|> IVisualElement
     FrameworkElement --|> UIElement
     Control --|> FrameworkElement
     UserControl --|> Control
