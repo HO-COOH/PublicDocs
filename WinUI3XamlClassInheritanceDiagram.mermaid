@@ -1,0 +1,313 @@
+---
+title: WinUI3 Xaml classes inheritance(Italic property means DependencyProperty, Italic method means virtual method, underlined means static method)
+---
+classDiagram
+    class DependencyObject{
+        +DispatcherQueue DispatcherQueue
+        +ClearValue(DependencyProperty dp)
+        +GetAnimationBaseValue(DependencyProperty dp)
+        +GetValue(DependencyProperty dp)
+        +SetValue(DependencyProperty dp, Object value)
+        +RegisterPropertyChangedCallback(DependencyProperty dp, DependencyPropertyChangedCallback callback)
+        +UnregisterPropertyChangedCallback(DependencyProperty dp, Int64 token)
+        +ReadLocalValue(DependencyProperty dp)
+    }
+
+    class UIElement{
+        +String AccessKey*
+        +DependencyObject AccessKeyScopeOwner*
+        +Vector3 ActualOffset
+        +Vector2 ActualSize
+        +bool AllowDrop*
+        +RoutedEvent BringIntoViewRequestedEvent$
+        +CacheMode CacheMode*
+        +bool CanBeScrollAnchor*
+        +bool CanDrag
+        +Vector3 CenterPoint
+        +RoutedEvent CharacterReceivedEvent$
+        +RectangleGeometry Clip*
+        +ElementCompositeMode CompositeMode*
+        +FlyoutBase ContextFlyout*
+        +RoutedEvent ContextRequestedEvent$
+        +Size DesiredSize
+        +RoutedEvent DoubleTappedEvent$
+        +RoutedEvent DragEnterEvent$
+        +RoutedEvent DragLeaveEvent$
+        +RoutedEvent DragOverEvent$
+        +RoutedEvent DropEvent
+        +bool ExitDisplayModeOnAccessKeyInvoked*
+        +FocusState FocusState*
+        +RoutedEvent GettingFocusEvent$
+        +ElementHighContrastAdjustment HighContrastAdjustment*
+        +RoutedEvent HoldingEvent$
+        +bool IsAccessKeyScope*
+        +bool IsDoubleTapEnabled*
+        +bool IsHitTestVisible*
+        +bool IsHoldingEnabled*
+        +bool IsRightTapEnabled*
+        +bool IsTabStop*
+        +bool IsTapEnabled*
+        +KeyboardAcceleratorPlacementMode KeyboardAcceleratorPlacementMode*
+        +DependencyObject KeyboardAcceleratorPlacementTarget*
+        +KeyboardAccelerator[] KeyboardAccelerators
+        +RoutedEvent KeyDownEvent$
+        +double KeyTipHorizontalOffset*
+        +KeyTipPlacementMode KeyTipPlacementMode*
+        +DependencyObject KeyTipTarget*
+        +double KeyTipVerticalOffset*
+        +RoutedEvent KeyUpEvent$
+        +XamlLight[] Lights*
+        +RoutedEvent LosingFocusEvent$
+        +RoutedEvent ManipulationCompletedEvent$
+        +RoutedEvent ManipulationDeltaEvent$
+        +ManipulationMode ManipulationMode*
+        +RoutedEvent ManipulationStartedEvent$
+        +RoutedEvent ManipulationStartingEvent$
+        +RoutedEvent NoFocusCandidateFoundEvent$
+        +double Opacity*
+        +ScalarTransition OpacityTransition
+        +RoutedEvent PointerCanceledEvent$
+        +RoutedEvent PointerCaptureLostEvent$
+        +const Pointer[] PointerCaptures*
+        +RoutedEvent PointerEnteredEvent$
+        +RoutedEvent PointerExitedEvent$
+        +RoutedEvent PointerMovedEvent$
+        +RoutedEvent PointerPressedEvent$
+        +RoutedEvent PointerReleasedEvent$
+        +RoutedEvent PointerWheelChangedEvent$
+        +RoutedEvent PreviewKeyDownEvent$
+        +RoutedEvent PreviewKeyUpEvent$
+        +Projection Projection*
+        +Size RenderSize
+        +Transform RenderTransform*
+        +Point RenderTransformOrigin*
+        +RoutedEvent RightTappedEvent$
+        +float Rotation
+        +Vector3 RotationAxis
+        +ScalarTransition RotationTransition
+        +Vector3 Scale
+        +Vector3Transition ScaleTransition
+        +Shadow Shadow*
+        +KeyboardNavigationMode TabFocusNavigation*
+        +int TabIndex*
+        +RoutedEvent TappedEvent$
+        +Transform3D Transform3D*
+        +Matrix4x4 TransformMatrix
+        +TransitionCollection Transitions*
+        +Vector3 Translation
+        +Vector3Transition TranslationTransition
+        +UIContext UIContext
+        +bool UseLayoutRounding*
+        +bool UseSystemFocusVisual*
+        +Visibility Visibility*
+        +XamlRoot XamlRoot
+        +XYFocusNavigationStrategy XYFocusDownNavigationStrategy*
+        +XYFocusKeyboardNavigationMode XYFocusKeyboardNavigation*
+        +XYFocusNavigationStrategy XYFocusLeftNavigationStrategy*
+        +XYFocusNavigationStrategy XYFocusRightNavigationStrategy*
+        +XYFocusNavigationStrategy XYFocusUpNavigationStrategy*
+        +DependencyObject XYFocusLeft*
+        +DependencyObject XYFocusRight*
+        +DependencyObject XYFocusUp*
+        +DependencyObject XYFocusDown*
+
+        +AddHandler(RoutedEvent routedEvent, Object handler, bool handledEventsToo)
+        +Arrange(Rect finalRect)
+        +CancelDirectManipulations() void
+        +CapturePointer(Pointer value) bool
+        +FindSubElementsForTouchTargeting(Point p, Rect boundingRect) Point[][]
+        +Focus(FocusState) bool
+        +GetChildrenInTabFocusOrder() DependencyObject[]
+        +GetVisualInternal() Visual
+        +InvalidateArrange() void
+        +InvalidateMeasure() void
+        +Measure(Size availableSize) void
+        #OnBringIntoViewRequested(BringIntoViewRequestedEventArgs)*
+        #OnCreateAutomationPeer() AutomationPeer*
+        #OnDisconnectVisualChildren() void*
+        #OnKeyboardAcceleratorInvoked(KeyboardAcceleratorInvokedEventArgs) void*
+        #OnProcessKeyboardAccelerators(ProcessKeyboardAcceleratorEventArgs) void*
+        +PopulatePropertyInfo(String propertyName, AnimationPropertyInfo propertyInfo) void
+        #PopulatePropertyInfoOverride(String propertyName, AnimationPropertyInfo propertyInfo) void*
+        +RegisterAsScrollPort(UIElement) void$
+        +ReleasePointerCapture(Pointer p) void
+        +ReleasePointerCaptures() void
+        +RemoveHandler(RoutedEvent routedEvent, Object handler) void
+        +StartAnimation(ICompositionAnimationBase animation) void
+        +StartBringIntoView() void
+        +StartBringIntoView(BringIntoViewOptions) void
+        +StartDragAsync(PointerPoint p) IAsyncOperation~DataPackageOperation~
+        +StopAnimation(ICompositionAnimationBase animation) void
+        +TransformToVisual(UIElement visual) GeneralTransform
+        +TryInvokeKeyboardAccelerator(ProcessKeyboardAcceleratorEventArgs args) void
+        +TryStartDirectManipulation(Pointer p) bool$
+        +UpdateLayout() void
+    }
+
+    class FrameworkElement{
+        +double ActualHeight*
+        +ElementTheme ActualTheme*
+        +double ActualWidth*
+        +bool AllowFocusOnInteraction*
+        +bool AllowFocusWhenDisabled*
+        +Uri BaseUri
+        +Object DataContext*
+        +FlowDirection FlowDirection*
+        +Thickness FocusVisualMargin*
+        +Brush FocusVisualPrimaryBrush*
+        +Thickness FocusVisualPrimaryThickness*
+        +Brush FocusVisualSecondaryBrush*
+        +Thickness FocusVisualSecondaryThickness*
+        +double Height*
+        +HorizontalAlignment HorizontalAlignment*
+        +bool IsLoaded
+        +String Language*
+        +Thickness Margin*
+        +double MaxHeight*
+        +double MinHeight*
+        +double MaxWidth*
+        +doubkle MinWidth*
+        +String Name*
+        +DependencyObject Parent
+        +ElementTheme RequestedTheme*
+        +ResourceDictionary Resources
+        +Style Style*
+        +Object Tag*
+        +TriggerCollection Triggers
+        +VerticalAlignment VerticalAlignment*
+        +Visibility Visibility
+        +double Width*
+
+        #ArrangeOverride(Size finalSize) Size*
+        +DeferTree(DependencyObject element) void$
+        +FindName(String name) Object
+        +GetBindingExpression(DependencyProperty dp) BindingExpression
+        #GoToElementStateCore(String stateName, bool useTransitions) bool*
+        #InvalidateViewport() void
+        #MeasureOverride(Size availableSize) Size*
+        #OnApplyTemplate() void*
+        +SetBinding(DependencyProperty dp, BindingBase binding) void
+    }
+
+    class Control{
+        +Brush Background*
+        +BackgroundSizing BackgroundSizing*
+        +BorderBrush BorderBrush*
+        +Thickness BorderThickness*
+        +int CharacterSpacing*
+        +CornerRadius CornerRadius*
+        +Object DefaultStyleKey*
+        +Uri DefaultStyleResourceUri*
+        +ElementSoundMode ElementSoundMode*
+        +FocusState FocusState*
+        +FontFamily FontFamily*
+        +double FontSize*
+        +FontStretch FontStretch*
+        +FontStyle FontStyle*
+        +FontWeight FontWeight*
+        +Brush Foreground*
+        +HorizontalAlignment HorizontalContentAlignment*
+        +bool IsEnabled*
+        +bool IsFocusEngaged*
+        +bool IsFocusEngagementEnabled*
+        +bool IsTabStop*
+        +DependencyProperty IsTemplateFocusTargetProperty$
+        +DependencyProperty IsTemplateKeyTipTargetProperty$
+        +bool IsTextScaleFactorEnabled*
+        +Thickness Padding*
+        +RequiresPointer RequiresPointer*
+        +KeyboardNavigationMode TabNavigation*
+        +Object Tag
+        +ControlTemplate Template*
+        +VerticalAlignment VerticalContentAlignment
+
+        +ApplyTemplate() bool
+        +Focus(FocusState) bool
+        +GetIsTemplateFocusTarget(FrameworkElement element) bool$
+        +GetIsTemplateKeyTipTarget(DependencyObject element) bool$
+        #GetTemplateChild(String childName) DependencyObject
+        #OnCharacterReceived(CharacterReceivedRoutedEventArgs) void*
+        #OnDoubleTapped(DoubleTappedRoutedEventArgs) void*
+        #OnDragEnter(DragEventArgs) void*
+        #OnDragLeave(DragEventArgs) void*
+        #OnDragOver(DragEventArgs) void*
+        #OnDrop(DragEventArgs) void*
+        #OnGotFocus(RoutedEventArgs) void*
+        #OnHolding(HoldingRoutedEventArgs) void*
+        #OnKeyDown(KeyRoutedEventArgs) void*
+        #OnKeyUp(KeyRoutedEventArgs) void*
+        #OnLostFous(RoutedEventArgs) void*
+        #OnManipulationCompleted(ManipulationCompletedEventArgs) void*
+        #OnManipulationDelta(ManipulationDeltaRoutedEventArgs) void*
+        #OnManipulationInertiaStarting(ManipulationInertiaStartingRoutedEventArgs) void*
+        #OnManipulationStarted(ManipulationStartedRoutedEventArgs) void*
+        #OnManipulationStarting(ManipulationStartingRoutedEventArgs) void*
+        #OnPointerCanceled(PointerRoutedEventArgs) void*
+        #OnPointerCaptureLost(PointerRoutedEventArgs) void*
+        #OnPointerEntered(PointerRoutedEventArgs) void*
+        #OnPointerExited(PointerRoutedEventArgs) void*
+        #OnPointerMoved(PointerRoutedEventArgs) void*
+        #OnPointerPressed(PointerRoutedEventArgs) void*
+        #OnPointerWheelChanged(PointerRoutedEventArgs) void*
+        #OnPreviewKeyDown(KeyRoutedEventArgs) void*
+        #OnPreviewKeyUp(KeyRoutedEventArgs) void*
+        #OnRightTapped(RightTappedRoutedEventArgs) void*
+        #OnTapped(TappedRoutedEventArgs) void*
+        +RemoveFocusEngagement() void
+        +SetIsTemplateFocusTarget(FrameworkElement element, bool value) void$
+        +SetIsTemplateKeyTipTarget(DependencyObject element, bool value) void$
+    }
+
+    class UserControl{
+        +UIElement Content*
+    }
+
+    class ContentControl{
+        +Object Content*
+        +DataTemplate ContentTemplate*
+        +DataTemplateSelector ContentTemplateSelector*
+        +TransitionCollection ContentTransitions*
+
+        #OnContentChanged(Object oldContent, Object newContent) void*
+        #OnContentTemplateChanged(DataTemplate oldTemplate, DataTemplate newTemplate) void*
+        #OnContentTemplateSelectorChanged(DataTemplateSelector oldSelector, DataTemplateSelector newSelector) void*
+    }
+
+    class ItemsControl{
+        +GroupStyle[] GroupStyle
+        +GroupStyleSelector GroupStyleSelector*
+        +bool IsGrouping*
+        +ItemContainerGenerator ItemContainerGenerator
+        +Style ItemContainerStyle*
+        +StyleSelector ItemContainerStyleSelector*
+        +TransitionCollection ItemContainerTransitions*
+        +ItemCollection Items
+        +ItemPanelTemplate ItemsPanel*
+        +Panel ItemsPanelRoot
+        +Object ItemsSource*
+        +DataTemplate ItemTemplate*
+        +DataTemplateSelector ItemTemplateSelector*
+
+        #ClearContainerForItemOverride(DependencyObject element, Object item) void*
+        +ContainerFromIndex(int index) DependencyObject
+        +ContainerFromItem(Object item) DependencyObject
+        +GroupHeaderContainerFromItemContainer(DependencyObject itemContainer) DependencyObject
+        +IndexFromContainer(DependencyObject container) int
+        #IsItemItsOwnContainnerOverride(Object item) bool*
+        +ItemFromContainer(DependencyObject container) Object
+        +ItemsControlFromItemContainer(DependencyObject container) ItemsControl$
+        #OnGroupStyleSelectorChanged(GroupStyleSelector oldSelector, GroupStyleSelector newSelector) void*
+        #OnItemContainerStyleChanged(Style oldStyle, Style newStyle) void*
+        #OnItemContainerStyleSelectorChanged(StyleSelector oldSelector, StyleSelector newSelector) void*
+        #OnItemsChanged(Object notUsed) void*
+        #OnItemTemplateChanged(DataTemplate oldTemplate, DataTemplate newTemplate) void*
+        #OnItemTemplateSelectorChanged(DataTemplateSelector oldSelector, DataTemplateSelector newSelector) void*
+        #PrepareContainerForItemOverride(DependencyObject element, Object item) void*
+    }
+
+    UIElement --|> DependencyObject
+    FrameworkElement --|> UIElement
+    Control --|> FrameworkElement
+    UserControl --|> Control
+    ContentControl --|> Control
+    ItemsControl --|> Control

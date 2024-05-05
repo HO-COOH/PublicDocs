@@ -1,5 +1,5 @@
 ---
-title: UWP Xaml classes inheritance
+title: UWP Xaml classes inheritance(Italic property means DependencyProperty, Italic method means virtual method, underlined means static method)
 ---
 classDiagram
     class DependencyObject{
@@ -22,7 +22,7 @@ classDiagram
         +RoutedEvent BringIntoViewRequestedEvent$
         +CacheMode CacheMode*
         +bool CanBeScrollAnchor*
-        +bool CanDrag
+        +bool CanDrag*
         +Vector3 CenterPoint
         +RoutedEvent CharacterReceivedEvent$
         +RectangleGeometry Clip*
@@ -52,7 +52,7 @@ classDiagram
         +double KeyTipHorizontalOffset*
         +KeyTipPlacementMode KeyTipPlacementMode*
         +DependencyObject KeyTipTarget*
-        +double KeyTipVerticalOffset
+        +double KeyTipVerticalOffset*
         +RoutedEvent KeyUpEvent$
         +XamlLight[] Lights*
         +RoutedEvent LosingFocusEvent$
@@ -87,11 +87,12 @@ classDiagram
         +Vector3Transition ScaleTransition
         +Shadow Shadow*
         +KeyboardNavigationMode TabFocusNavigation*
-        +RoutedEvent TabbedEvent$
+        +RoutedEvent TappedEvent$
         +Transform3D Transform3D*
         +Matrix4x4 TransformMatrix
         +TransitionCollection Transitions*
-        +Vector3 Translation*
+        +Vector3 Translation
+        +Vector3Transition TranslationTransition
         +UIContext UIContext
         +bool UseLayoutRounding*
         +Visibility Visibility*
@@ -99,7 +100,7 @@ classDiagram
         +XYFocusNavigationStrategy XYFocusDownNavigationStrategy*
         +XYFocusKeyboardNavigationMode XYFocusKeyboardNavigation*
         +XYFocusNavigationStrategy XYFocusLeftNavigationStrategy*
-        +XYFocusNavigationStrategy XYRightNavigationStrategy*
+        +XYFocusNavigationStrategy XYFocusRightNavigationStrategy*
         +XYFocusNavigationStrategy XYFocusUpNavigationStrategy*
 
         +AddHandler(RoutedEvent routedEvent, Object handler, bool handledEventsToo)
@@ -113,7 +114,7 @@ classDiagram
         +Measure(Size availableSize) void
         #OnBringIntoViewRequested(BringIntoViewRequestedEventArgs)*
         #OnCreateAutomationPeer() AutomationPeer*
-        #OnDisconnectVirtualChildren() void*
+        #OnDisconnectVisualChildren() void*
         #OnKeyboardAcceleratorInvoked(KeyboardAcceleratorInvokedEventArgs) void*
         #OnProcessKeyboardAccelerators(ProcessKeyboardAcceleratorEventArgs) void*
         +PopulatePropertyInfo(String propertyName, AnimationPropertyInfo propertyInfo) void
@@ -204,7 +205,7 @@ classDiagram
         +DependencyProperty IsTemplateKeyTipTargetProperty$
         +bool IsTextScaleFactorEnabled*
         +Thickness Padding*
-        +RequiresPointer ReqauiresPointer*
+        +RequiresPointer RequiresPointer*
         +int TabIndex*
         +KeyboardNavigationMode TabNavigation*
         +Object Tag
